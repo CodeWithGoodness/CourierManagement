@@ -7,9 +7,15 @@ public class Test {
         Scanner input = new Scanner(System.in);
         ProductMethods productMethods = new ProductMethods();
         Product product = new Product();
+        ProductMethods.locationDatabase();
+        productMethods.addDeliveryLocation("imo", 900);
+        productMethods.addDeliveryLocation("Lagos", 2000);
+        productMethods.addDeliveryLocation("kano", 500);
+        productMethods.addDeliveryLocation("Enugu", 100);
+        productMethods.addDeliveryLocation("Anambra", 1500);
        // ProductMethods.productDatabase();
 //        CustomerMethods.customerDatabase();
-//        ProductMethods.locationDatabase();
+//
 
 //       System.out.print("Product: ");
 //       String name = input.next();

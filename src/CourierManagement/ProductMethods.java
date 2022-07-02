@@ -112,7 +112,7 @@ public class ProductMethods {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
             statement = connection.createStatement();
-            statement.executeUpdate("insert into location (state, price) values ('"+customer.getLocation()+"', '"+product.getDeliveryPrice()+"'");
+            statement.executeUpdate("insert into location (state, price) values ('"+customer.getLocation()+"', '"+product.getDeliveryPrice()+"')");
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

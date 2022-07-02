@@ -10,7 +10,7 @@ public class CustomerMethods {
             productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             productMethods.statement.executeUpdate("create  table customers_table(Name varChar(50), ProductBought varChar(50)," +
-                    "Quantity int,location varChar(20))");
+                    "Quantity int,location varChar(20)), Date date");
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
