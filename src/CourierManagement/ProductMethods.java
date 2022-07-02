@@ -9,9 +9,9 @@ public class ProductMethods {
     public static void productDatabase(){
         ProductMethods productMethods = new ProductMethods();
         try {
-             productMethods.connection = DriverManager.getConnection("jdbc.mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+             productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
-            productMethods.statement.executeUpdate("create products_table( product varChar(50), product_price int,delivery_price int, Quantity int," +
+            productMethods.statement.executeUpdate("create  table products_table( product varChar(50), product_price int,delivery_price int, Quantity int," +
                     "discount_rate int, inStock Enum('T','F'), category varChar(20))");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -20,7 +20,7 @@ public class ProductMethods {
         }
     }
 
-    public static void addProduct(String productName, int productPrice, int deliveryP, int quantity, int discountPrice, boolean inStock, String category){
+    public static void addProduct(String productName, int productPrice, int deliveryP, int quantity, int discountPrice, String category){
         Product product = new Product();
         ProductMethods productMethods = new ProductMethods();
         product.setProductName(productName);
@@ -28,20 +28,22 @@ public class ProductMethods {
         product.setDeliveryPrice(deliveryP);
         product.setQuantity(quantity);
         product.setDiscount(discountPrice);
-        product.setInStock(inStock);
         product.setCategory(category);
       try {
-          productMethods.connection = DriverManager.getConnection("jdbc.mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
-          Statement statement = productMethods.connection.createStatement();
-          productMethods.statement.executeUpdate("insert into products_table(product,product_price,delivery_price int, Quantity, discount_rate, inStock, category)values" +
-                  "('"+product.getProductName()+"', '"+product.getPrice()+"', '"+product.getDeliveryPrice()+"', '"+product.getQuantity()+"'" +
-                  "'"+product.getDiscount()+"', '"+product.inStock+"','"+product.getCategory()+"')");
+          productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+          productMethods.statement = productMethods.connection.createStatement();
+          productMethods.statement.executeUpdate("insert into products_table (product,product_price,delivery_price, Quantity, discount_rate," +
+                  " category) values ('"+product.getProductName()+"', '"+product.getPrice()+"', '"+product.getDeliveryPrice()+"'," +
+                  "'"+product.getQuantity()+"', '"+product.getDiscount()+"', '"+product.getCategory()+"')");
       } catch (SQLException e) {
           e.printStackTrace();
       }finally {
           ProductMethods.close();
       }
     }
+    //statement.executeUpdate("insert into voting_database (FirstName,lastName, Gender, State," +
+     //       "Age , password, Status) values('"+getFirstName()+"','"+getLastName()+"', '"+getGender()+"', '"+getState()+"','"+getAge()+"'," +
+       //     " 'Admin@onlineVoting.com', 'Admin') ");
     public static void close(){
         ProductMethods productMethods = new ProductMethods();
         try {

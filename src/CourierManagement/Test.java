@@ -7,7 +7,7 @@ public class Test {
         Scanner input = new Scanner(System.in);
         ProductMethods productMethods = new ProductMethods();
         Product product = new Product();
-        ProductMethods.productDatabase();
+       // ProductMethods.productDatabase();
 
         System.out.print("Name: ");
         String name = input.next();
@@ -19,10 +19,9 @@ public class Test {
         int Qty = input.nextInt();
         System.out.print(" discount");
         int discount = input.nextInt();
-        System.out.print("stock ");
-        boolean stock = input.hasNext();
         System.out.print(" category");
         String category = input.next();
-        ProductMethods.addProduct(name, Price, delPrice, Qty, discount, stock, category);
+
+        ProductMethods.addProduct(name, Price, delPrice, Qty, discount, category);
     }
 }
