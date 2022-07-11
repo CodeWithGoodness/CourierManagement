@@ -164,6 +164,38 @@ public class ProductMethods {
             ProductMethods.close();
         }
     }
+    public void displayCategories(){
+        Product product = new Product();
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select * from products_table");
+            while (resultSet.next()){
+                System.out.println(resultSet.getString(5));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            ProductMethods.close();
+        }
+    }
+    public void displayProducts(String input){
+        Product product = new Product();
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select * from products_table where category = '"+input+"'");
+            while (resultSet.next()){
+                System.out.println("product: " + resultSet.getString(1));
+                System.out.println("price: " + resultSet.getString(2));
+                System.out.println();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            ProductMethods.close();
+        }
+    }
 
     public static void close(){
         ProductMethods productMethods = new ProductMethods();
