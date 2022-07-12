@@ -1,8 +1,16 @@
 package CourierManagement;
 
 public class Customer {
-    private String location;
+    private String location, name;
     private boolean paid = false;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public boolean isPaid() {
         return paid;

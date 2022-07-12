@@ -19,6 +19,20 @@ public class CustomerMethods {
             ProductMethods.close();
         }
     }
+    public static void addCustomer(){
+        Customer customer = new Customer();
+        ProductMethods productMethods = new ProductMethods();
+        try {
+            productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            productMethods.statement = productMethods.connection.createStatement();
+            productMethods.statement.executeUpdate("insert into customers_table(Name, ProductBought,Quantity,location, Date)" +
+                    " values ('"+customer.getName()+"', )");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            ProductMethods.close();
+        }
+    }
 
     public void confirmPurchase(String paymentCode){
             if(paymentCode.equals(generateRandom())){
