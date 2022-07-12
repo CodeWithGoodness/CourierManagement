@@ -7,8 +7,10 @@ public class Test {
         Scanner input = new Scanner(System.in);
         ProductMethods productMethods = new ProductMethods();
         Product product = new Product();
+        CustomerMethods customerMethods = new CustomerMethods();
+        System.out.println(CustomerMethods.generateRandom());
        // productMethods.displayCategories();
-        productMethods.displayProducts("stationery");
+      //  productMethods.displayProducts("stationery");
    //     ProductMethods.locationDatabase();
 //        productMethods.addDeliveryLocation("imo", 900);
 //        productMethods.addDeliveryLocation("Lagos", 2000);

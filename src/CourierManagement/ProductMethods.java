@@ -20,6 +20,7 @@ public class ProductMethods {
         }
     }
     public static void locationDatabase(){
+        //lists of delivery locations and prices
         ProductMethods productMethods = new ProductMethods();
         try {
             productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
@@ -52,6 +53,7 @@ public class ProductMethods {
       }
     }
     public void RemoveProduct(String productName){
+        //remove a product from database
         Product product = new Product();
         ProductMethods productMethods = new ProductMethods();
         try {
@@ -65,6 +67,7 @@ public class ProductMethods {
         }
     }
     public void updateProductName(String newProductName, String oldProductName){
+        //change a product's name
         Product product = new Product();
         ProductMethods productMethods = new ProductMethods();
         try {
@@ -78,6 +81,7 @@ public class ProductMethods {
         }
     }
     public void updateProductPrice(String productName, int newPrice){
+        //change a product's price
         Product product = new Product();
         ProductMethods productMethods = new ProductMethods();
         try {
@@ -90,7 +94,9 @@ public class ProductMethods {
             ProductMethods.close();
         }
     }
+
     public void updateDeliveryPrice(String location, int newDeliveryPrice){
+        //change a delivery price
         Product product = new Product();
         ProductMethods productMethods = new ProductMethods();
         Customer customer = new Customer();
@@ -198,6 +204,7 @@ public class ProductMethods {
     }
 
     public static void close(){
+        //close connections and database
         ProductMethods productMethods = new ProductMethods();
         try {
             if(productMethods.connection != null){
@@ -211,6 +218,7 @@ public class ProductMethods {
         }
     }
     public static void closeResult(){
+        //close result set
         ProductMethods productMethods = new ProductMethods();
         try {
             if(productMethods.resultSet!= null){
