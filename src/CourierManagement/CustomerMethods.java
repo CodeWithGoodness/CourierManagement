@@ -22,11 +22,12 @@ public class CustomerMethods {
     public static void addCustomer(){
         Customer customer = new Customer();
         ProductMethods productMethods = new ProductMethods();
+        Product product = new Product();
         try {
             productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             productMethods.statement.executeUpdate("insert into customers_table(Name, ProductBought,Quantity,location, Date)" +
-                    " values ('"+customer.getName()+"', )");
+                    " values ('"+customer.getName()+"', '"+product.getProductName()+"')");
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
@@ -46,7 +47,7 @@ public class CustomerMethods {
     }
     public static String generateRandom(){
         //This program uses a code to confirm payment(An assumption).
-        // A radom string is generated, if the buyer enters the string correctly, payment is confirmed.
+        // A random string is generated, if the buyer enters the string correctly, payment is confirmed.
         UUID randomUUID  = UUID.randomUUID();
         return randomUUID.toString().replaceAll("-", "");
     }

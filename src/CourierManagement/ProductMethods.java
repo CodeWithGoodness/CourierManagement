@@ -11,8 +11,7 @@ public class ProductMethods {
         try {
              productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
-            productMethods.statement.executeUpdate("create  table products_table( Product varChar(50), Price int, Quantity int," +
-                    "Percent_Discount int, Category varChar(20))");
+            productMethods.statement.executeUpdate("create  table products_table( Product varChar(50), Price int, Quantity int, Percent_Discount int, Category varChar(20), Password varChar (10)");
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
