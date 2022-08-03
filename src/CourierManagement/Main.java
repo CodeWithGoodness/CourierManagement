@@ -9,7 +9,8 @@ public class Main {
         String user = input.next();
         switch (user){
             case "1":
-
+                System.out.println("1. Add product \n2. update \n3. Edit password");
+                System.out.println("Enter name and password to log in");
                 break;
             case "2":
                 System.out.println("1. Buy a product \n2. Check price of products");

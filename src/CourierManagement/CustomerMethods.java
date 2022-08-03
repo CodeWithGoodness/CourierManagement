@@ -9,7 +9,7 @@ public class CustomerMethods {
     public static void customerDatabase(){
         ProductMethods productMethods = new ProductMethods();
         try {
-            productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            productMethods.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             productMethods.statement.executeUpdate("create  table customers_table(Name varChar(50), ProductBought varChar(50)," +
                     "Quantity int,location varChar(20)), Date date");
@@ -24,7 +24,7 @@ public class CustomerMethods {
         ProductMethods productMethods = new ProductMethods();
         Product product = new Product();
         try {
-            productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            productMethods.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             productMethods.statement.executeUpdate("insert into customers_table(Name, ProductBought,Quantity,location, Date)" +
                     " values ('"+customer.getName()+"', '"+product.getProductName()+"')");

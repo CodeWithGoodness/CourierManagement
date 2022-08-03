@@ -8,7 +8,7 @@ public class AdminMethods {
     public static void writePassword (){
         ProductMethods productMethods = new ProductMethods();
         try {
-            productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            productMethods.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             productMethods.statement.executeUpdate("insert into customers_table(Password) values ('admins@.courierServices.com')");
         } catch (SQLException e) {
@@ -21,7 +21,7 @@ public class AdminMethods {
         ProductMethods productMethods = new ProductMethods();
         Admin admin = new Admin();
         try {
-            productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            productMethods.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             ResultSet resultSet = productMethods.statement.executeQuery("select * from customers_table");
             while (resultSet.next()){
@@ -44,7 +44,7 @@ public class AdminMethods {
         ProductMethods productMethods = new ProductMethods();
         Admin admin = new Admin();
         try {
-            productMethods.connection = DriverManager.getConnection("jdbc:mysql://DESKTOP-9M33U7D/mydb","root", "Cecilia2002");
+            productMethods.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb","root", "Cecilia2002");
             productMethods.statement = productMethods.connection.createStatement();
             ResultSet resultSet = productMethods.statement.executeQuery("select * from customers_table");
             while (resultSet.next()){
